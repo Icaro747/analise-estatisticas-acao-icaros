@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "formulahendry.auto-rename-tag",
+        "naumovs.color-highlight",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "chakrounanas.turbo-console-log",
+        "styled-components.vscode-styled-components"
+    ]
+}
