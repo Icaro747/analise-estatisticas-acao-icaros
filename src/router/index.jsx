@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import Home from "../pages/home";
 import AnaliseAcao from "../pages/AnaliseAcao";
 import Careira from "../pages/Careira";
+import Papel from "../pages/Papels";
 
 import "../assets/styles/main.scss";
 
@@ -43,8 +44,12 @@ const listRoutes = createBrowserRouter([
         element: <AnaliseAcao />
       },
       {
-        path: "Careira/:id",
+        path: "carteira/:id",
         element: <Careira />
+      },
+      {
+        path: "papel/:id",
+        element: <Papel />
       }
     ]
   },

@@ -1,7 +1,7 @@
 // install (please try to align the version of installed @nivo packages)
 // yarn add @nivo/pie
-import { ResponsivePie } from "nivo/pie";
-
+import { ResponsivePie } from "@nivo/pie";
+import PropTypes from "prop-types";
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
@@ -39,5 +39,9 @@ function MyResponsivePie({ data /* see data tab */ }) {
     />
   );
 }
+
+MyResponsivePie.propTypes = {
+  data: PropTypes.array.isRequired
+};
 
 export default MyResponsivePie;

@@ -1,10 +1,9 @@
 .MainBox {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bg-DarkMode-1 {
   background-color: #121212;
-  color: white;
 }
 
 .bg-DarkMode-2 {
@@ -15,4 +14,12 @@
 .container {
   padding-top: 25px;
   padding-bottom: 25px;
+}
+
+.cor-titulo-branco {
+  color: white;
+}
+
+.box-btn-salvar {
+  margin-top: 30px;
 }

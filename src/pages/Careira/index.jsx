@@ -1,16 +1,22 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import moment from "moment";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 
 import Api from "../../services/Api";
+import { AlertContext } from "../../contexts/AlertContext";
 
-import FormAddPapels from "./forms/AddPapels";
+import FormAddPapels from "./modules/forms/AddPapels";
+import Graficos from "./modules/graficos";
 
 function Careira() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const { NotificationMessage } = useContext(AlertContext);
+
   const [NomeCareira, setNomeCareira] = useState("");
   const [ListaPapels, setListaPapels] = useState([]);
 
@@ -36,7 +42,7 @@ function Careira() {
       });
       setListaPapels(newListaPapels);
     } catch (error) {
-      console.error(error);
+      NotificationMessage("error", "algo deu errado carregado de informações");
     }
   };
 
@@ -46,26 +52,25 @@ function Careira() {
 
   return (
     <div>
+      <h1>Carteira: {NomeCareira}</h1>
+      <Graficos id={id} />
       <FormAddPapels id={id} />
       <div className="bg-DarkMode-2">
         <div className="container">
-          <h1>{NomeCareira}</h1>
           {ListaPapels.length > 0 && (
             <div>
-              <h2>Operações</h2>
+              <h2>Papéis</h2>
               <div className="card">
                 <DataTable
                   value={ListaPapels}
                   tableStyle={{ minWidth: "50rem" }}
+                  selectionMode="single"
+                  onSelectionChange={(e) => navigate(`/papel/${e.value.id}`)}
                 >
+                  <Column field="id" header="ID" sortable />
                   <Column field="titulo" header="Papel" sortable />
                   <Column field="classe" header="Classe" sortable />
                   <Column field="setor" header="Setor" sortable />
-                  <Column field="qtd" header="Quantidade" sortable />
-                  <Column field="valor" header="Valor Total" sortable />
-                  <Column field="taxa" header="Taxa" sortable />
-                  <Column field="operacao" header="Operação" sortable />
-                  <Column field="data" header="Data" sortable />
                 </DataTable>
               </div>
             </div>

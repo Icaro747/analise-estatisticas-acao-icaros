@@ -22,7 +22,7 @@ function Home() {
       const R = await Api.Get("/Cartier");
       setListaCarteiras(R.data);
     } catch (error) {
-      console.error(error);
+      NotificationMessage("error", "algo deu errado carregado de informações");
     }
   };
 
@@ -34,7 +34,7 @@ function Home() {
       const R = await Api.Post("/Cartier", payload);
       GatAllCareira();
     } catch (error) {
-      console.error(error);
+      NotificationMessage("error", "algo deu errado cadastrar as informações");
     }
   };
 
@@ -74,7 +74,7 @@ function Home() {
             <div className="card">
               <DataTable
                 selectionMode="single"
-                onSelectionChange={(e) => navigate(`/Careira/${e.value.id}`)}
+                onSelectionChange={(e) => navigate(`/carteira/${e.value.id}`)}
                 value={ListaCarteiras}
                 tableStyle={{ minWidth: "50rem" }}
               >
