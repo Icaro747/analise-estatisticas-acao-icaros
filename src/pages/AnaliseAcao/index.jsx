@@ -201,10 +201,6 @@ function AnaliseAcao() {
         elementResult.dividendsData.cashDividends.forEach((elementDividend) => {
           Dividend += elementDividend.rate;
         });
-        console.log(
-          "🚀 ~ file: App.js:211 ~ returns.data.results.forEach ~ Dividend:",
-          Dividend
-        );
       });
     } catch (error) {
       console.error(error);
@@ -242,9 +238,6 @@ function AnaliseAcao() {
           for (let i = 0; i < children.length; i++) {
             const child = children[i];
             if (child.nodeType === Node.ELEMENT_NODE) {
-              console.log("🚀 ~ file: index.jsx:244 ~ elementTabela ~ child:", {
-                child
-              });
               if (child.localName === "thead" && TypeItem === undefined) {
                 elementTabela(child, "thead");
               }
@@ -255,10 +248,6 @@ function AnaliseAcao() {
                 setCabesa(elementItemTable(child, TypeItem));
               }
               if (TypeItem === "tbody") {
-                console.log(
-                  "🚀 ~ file: index.jsx:244 ~ elementTabela ~ child:",
-                  { child }
-                );
               }
             }
           }
@@ -349,7 +338,7 @@ function AnaliseAcao() {
             rows="4"
             cols="50"
           />
-          <button type="button" onClick={() => htmlToJson(html)}>
+          <button type="button" onClick={() => vai(html)}>
             Go
           </button>
           <button type="button" onClick={() => setShowAll((e) => !e)}>

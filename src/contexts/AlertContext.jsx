@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react/prop-types */
-/* eslint-disable react/function-component-definition */
 import { createContext, useRef } from "react";
 
 export const AlertContext = createContext();
@@ -8,7 +7,7 @@ export const AlertContext = createContext();
 const AlertProvider = ({ children }) => {
   const msgs = useRef(null);
 
-  const NotificationMessage = (Type, message, time = 3000) => {
+  const NotificationMessage = (Type, message, time = 5000) => {
     switch (Type) {
       case "info":
         msgs.current.show([
