@@ -23,8 +23,10 @@ function Careira() {
   const GatThisCareira = async () => {
     try {
       const R = await Api.Get(`/Cartier/${id}`);
+
       setNomeCareira(R.data.nome);
       const newListaPapels = [];
+
       R.data.papels.forEach((elementPapels) => {
         const names = Object.getOwnPropertyNames(elementPapels);
         let newObj = {};
@@ -40,6 +42,7 @@ function Careira() {
         });
         newListaPapels.push(newObj);
       });
+
       setListaPapels(newListaPapels);
     } catch (error) {
       NotificationMessage("error", "algo deu errado carregado de informações");
@@ -52,7 +55,9 @@ function Careira() {
 
   return (
     <div>
-      <h1>Carteira: {NomeCareira}</h1>
+      <div className="container">
+        <h1 className="cor-titulo-branco">Carteira: {NomeCareira}</h1>
+      </div>
       <Graficos id={id} />
       <FormAddPapels id={id} />
       <div className="bg-DarkMode-2">

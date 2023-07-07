@@ -45,9 +45,9 @@ function Home() {
   return (
     <div className="bg-DarkMode-1">
       <div className="container">
-        <h1>Careira</h1>
+        <h1 className="cor-titulo-branco">Carteira</h1>
         <S.FormCartier className="bg-DarkMode-2">
-          <h2>Nova Careira</h2>
+          <h2>Nova Carteira</h2>
           <S.BoxItensFrom>
             <span className="p-float-label">
               <InputText
@@ -69,7 +69,7 @@ function Home() {
       </div>
       <div className="bg-DarkMode-2">
         <div className="container">
-          <h2>Lista Careira</h2>
+          <h2>Lista Carteira</h2>
           {ListaCarteiras.length > 0 && (
             <div className="card">
               <DataTable
