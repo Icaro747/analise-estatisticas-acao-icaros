@@ -17,7 +17,7 @@ const Papel = () => {
   const [Movimento, setMovimento] = useState([]);
   const [ListaDividendos, setListaDividendos] = useState([]);
 
-  function compararPorDataTexto(a, b) {
+  function CompararPorDataTexto(a, b) {
     const textoA = a.x.toUpperCase();
     const textoB = b.x.toUpperCase();
 
@@ -25,6 +25,19 @@ const Papel = () => {
       return -1;
     }
     if (textoA > textoB) {
+      return 1;
+    }
+    return 0;
+  }
+
+  function CompararPorDataMovimento(a, b) {
+    const DataA = a.data.toUpperCase();
+    const DataB = b.data.toUpperCase();
+
+    if (DataA > DataB) {
+      return -1;
+    }
+    if (DataA < DataB) {
       return 1;
     }
     return 0;
@@ -38,6 +51,7 @@ const Papel = () => {
       const newListaDividendos = [];
       R.data.movimentacoes.forEach((element) => {
         newListaMovimento.push({
+          data: moment(element.data).format("MM/DD/YYYY"),
           operacao: element.operacao,
           qtd: element.qtd,
           taxa: element.taxa,
@@ -53,11 +67,11 @@ const Papel = () => {
       });
 
       setPapelData(R.data);
-      setMovimento(newListaMovimento);
+      setMovimento(newListaMovimento.sort(CompararPorDataMovimento));
       setListaDividendos([
         {
           id: "Dividendos",
-          data: newListaDividendos.sort(compararPorDataTexto)
+          data: newListaDividendos.sort(CompararPorDataTexto)
         }
       ]);
     } catch (error) {
@@ -88,7 +102,7 @@ const Papel = () => {
         <S.BoxTable>
           {Movimento.length > 0 && (
             <Table
-              cabecario={["Operação", "Quantidade", "Taxa", "Valor"]}
+              cabecario={["Data", "Operação", "Quantidade", "Taxa", "Valor"]}
               colunas={Movimento}
             />
           )}

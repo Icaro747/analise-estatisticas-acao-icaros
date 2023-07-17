@@ -21,9 +21,9 @@ class Api {
 
         nameParams.forEach((item, i) => {
           if (i === 0) {
-            query = `?${item}=${params[item]}`
+            query = `?${item}=${encodeURIComponent(params[item])}`
           } else {
-            query += `&${item}=${params[item]}`
+            query += `&${item}=${encodeURIComponent(params[item])}`
           }
         })
       }
