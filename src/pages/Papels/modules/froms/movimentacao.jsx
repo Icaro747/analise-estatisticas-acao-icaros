@@ -40,7 +40,7 @@ const Movimentacao = ({ id }) => {
         idPapel: id,
         data: moment(Data).format("MM/DD/YYYY"),
         operacao: Operacao.name,
-        qtd: Qtd,
+        qtd: Operacao.name === "Venda" ? Qtd * -1 : Qtd,
         valor: Valor,
         taxa: Taxa
       };

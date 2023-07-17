@@ -19,7 +19,7 @@ function Home() {
 
   const GatAllCareira = async () => {
     try {
-      const R = await Api.Get("/Cartier");
+      const R = await Api.Get("/Carteira");
       setListaCarteiras(R.data);
     } catch (error) {
       NotificationMessage("error", "algo deu errado carregado de informações");
@@ -31,7 +31,7 @@ function Home() {
       const payload = {
         nome: NomeCarteira
       };
-      const R = await Api.Post("/Cartier", payload);
+      const R = await Api.Post("/Carteira", payload);
       GatAllCareira();
     } catch (error) {
       NotificationMessage("error", "algo deu errado cadastrar as informações");
