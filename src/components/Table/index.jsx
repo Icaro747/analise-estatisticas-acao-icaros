@@ -94,7 +94,7 @@ const Table = ({
         if (indexRemocao > -1) nameColunas.splice(indexRemocao, 1);
 
         return lista.map((item, i) => (
-          <S.Linha key={`linha-${i + 1}`} corSecundaria={i % 2 === 0}>
+          <S.Linha key={`linha-${i + 1}`} secundaria={String(i % 2 === 0)}>
             {nameColunas.map(
               (variable, j) =>
                 variable !== "index" && (
@@ -247,7 +247,7 @@ const Table = ({
 };
 
 Table.propTypes = {
-  cabecario: PropTypes.array.isRequired,
+  cabecario: PropTypes.arrayOf(PropTypes.string).isRequired,
   colunas: PropTypes.array.isRequired,
   nameItemStatus: PropTypes.string,
   isEdit: PropTypes.bool,

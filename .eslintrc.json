@@ -13,8 +13,9 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-unused-vars": "warn",
+        "no-empty": "warn",
         "no-plusplus": "off",
+        "no-unused-vars": "warn",
         "arrow-body-style": "off",
         "react/forbid-prop-types": "off",
         "react/react-in-jsx-scope": "off",

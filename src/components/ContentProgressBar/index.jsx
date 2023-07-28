@@ -21,7 +21,7 @@ const ContentProgressBar = ({ currentProgress, fullStop }) => {
 };
 
 ContentProgressBar.propTypes = {
-  currentProgress: PropTypes.string.isRequired,
+  currentProgress: PropTypes.number.isRequired,
   fullStop: PropTypes.number.isRequired
 };
 

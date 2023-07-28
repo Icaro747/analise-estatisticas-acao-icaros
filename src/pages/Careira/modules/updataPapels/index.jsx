@@ -51,6 +51,10 @@ const UpdatePapels = () => {
         await Api.Post("/Cotacao", payload);
         setItemLogin((e) => e + 1);
       }
+      NotificationMessage(
+        "success",
+        "valor das ações foram atualizadas com sucesso"
+      );
     } catch (error) {
       NotificationMessage("error", "algo deu errado cadastrar as informações");
     }

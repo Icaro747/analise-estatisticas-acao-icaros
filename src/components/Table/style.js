@@ -39,7 +39,7 @@ export const Corpo = styled.tbody`
 export const Linha = styled.tr`
   td{
     p,div{
-      ${({ corSecundaria }) => corSecundaria ? css`
+      ${({ secundaria }) => secundaria === "true" ? css`
         background-color: #e8e8e8;
       `: css`
         background-color: #fff;
